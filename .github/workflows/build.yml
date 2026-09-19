@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  OPENWRT_VERSION: 24.10.2
+  OPENWRT_VERSION: 24.10.5
 
 jobs:
   build:
@@ -38,6 +38,7 @@ jobs:
           cp ../config/x86_64.config .config
           ./scripts/feeds update -a
           ./scripts/feeds install -a
+          git clone --depth=1 https://github.com/tonylee2022/luci-app-nezha-agent.git package/luci-app-nezha-agent
           make defconfig
 
       - name: Download package sources

@@ -1,6 +1,8 @@
 # OpenWrt x86_64
 
-这是一个用于构建 OpenWrt x86_64 固件的最小配置仓库。
+这是一个用于构建 OpenWrt x86_64 固件的配置仓库，当前构建 OpenWrt 24.10.5。
+
+固件包含以下网络工具：PassWall、OpenClash、SSR Plus、NPS 客户端和哪吒监控 Agent。
 
 ## 目录结构
 
@@ -19,7 +21,7 @@
 ```bash
 git clone https://github.com/openwrt/openwrt.git
 cd openwrt
-git checkout v24.10.2
+git checkout v24.10.5
 cp ../x86/config/x86_64.config .config
 cp ../x86/feeds.conf.default feeds.conf.default
 ./scripts/feeds update -a
