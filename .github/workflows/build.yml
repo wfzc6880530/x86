@@ -35,10 +35,10 @@ jobs:
         working-directory: openwrt
         run: |
           cp ../feeds.conf.default feeds.conf.default
-          cp ../config/x86_64.config .config
           ./scripts/feeds update -a
           ./scripts/feeds install -a
           git clone --depth=1 https://github.com/tonylee2022/luci-app-nezha-agent.git package/luci-app-nezha-agent
+          cp ../config/x86_64.config .config
           make defconfig
 
       - name: Download package sources
