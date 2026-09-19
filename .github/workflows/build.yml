@@ -37,6 +37,10 @@ jobs:
           cp ../feeds.conf.default feeds.conf.default
           ./scripts/feeds update -a
           ./scripts/feeds install -a
+          # luci-app-radicale3 in the 24.10 LuCI feed references a package
+          # that is not provided by the matching packages feed. It is not
+          # selected in this image, so exclude it from the package tree.
+          rm -rf package/feeds/luci/luci-app-radicale3
           git clone --depth=1 https://github.com/tonylee2022/luci-app-nezha-agent.git package/luci-app-nezha-agent
           cp ../config/x86_64.config .config
           make defconfig
